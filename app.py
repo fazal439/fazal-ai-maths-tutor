@@ -549,20 +549,19 @@ with st.sidebar:
     st.write("📚 Subject: Mathematics")
     st.write("🌐 Available Online")
 
-st.markdown("""
-<div class="hero">
-    <span class="math-symbol symbol1">π</span>
-    <span class="math-symbol symbol2">√x</span>
-    <span class="math-symbol symbol3">Σ</span>
-    <span class="math-symbol symbol4">∞</span>
-
-    <div class="hero-title">🎓 Fazal AI Maths Tutor</div>
-
-    <div class="animated-statement">
-        Your intelligent partner for learning mathematics step by step.
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(
+    '<div class="hero">'
+    '<span class="math-symbol symbol1">π</span>'
+    '<span class="math-symbol symbol2">√x</span>'
+    '<span class="math-symbol symbol3">Σ</span>'
+    '<span class="math-symbol symbol4">∞</span>'
+    '<div class="hero-title">🎓 Fazal AI Maths Tutor</div>'
+    '<div class="animated-statement">'
+    'Your intelligent partner for learning mathematics step by step.'
+    '</div>'
+    '</div>',
+    unsafe_allow_html=True
+)
 
 st.markdown(
     f"""
