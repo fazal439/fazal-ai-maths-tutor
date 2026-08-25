@@ -654,7 +654,18 @@ Instructions:
                 answer = response.text
 
             except Exception as error:
-                answer = f"⚠️ Technical error: {error}"
+    error_text = str(error)
+
+    if "429" in error_text or "RESOURCE_EXHAUSTED" in error_text:
+        answer = (
+            "⏳ The free AI service is currently busy. "
+            "Please wait 30 seconds and try again."
+        )
+    else:
+        answer = (
+            "⚠️ The AI service is temporarily unavailable. "
+            "Please try again shortly."
+        )
 
         st.markdown(answer)
 
