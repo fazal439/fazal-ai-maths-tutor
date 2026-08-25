@@ -110,7 +110,11 @@ st.markdown("""
         width: 100% !important;
     }
 }
-
+.hero-title::before,
+.hero-title::after {
+    content: none !important;
+    display: none !important;
+}
 </style>
 """, unsafe_allow_html=True)
 st.markdown("""
@@ -548,14 +552,16 @@ with st.sidebar:
     st.write("🟢 AI Tutor: Ready")
     st.write("📚 Subject: Mathematics")
     st.write("🌐 Available Online")
+import base64
 
+with open("fazal_profile.jpg.jpeg", "rb") as image_file:
+    profile_image = base64.b64encode(image_file.read()).decode()
 st.markdown(
     '<div class="hero">'
     '<span class="math-symbol symbol1">π</span>'
-    '<span class="math-symbol symbol2">√x</span>'
-    '<span class="math-symbol symbol3">Σ</span>'
+f'<div class="hero-title" style="display:flex;align-items:center;gap:16px;"><img src="data:image/jpeg;base64,{profile_image}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #67e8f9;box-shadow:0 0 22px rgba(103,232,249,0.7);flex-shrink:0;">Fazal AI Maths Tutor</div>'    '<span class="math-symbol symbol3">Σ</span>'
     '<span class="math-symbol symbol4">∞</span>'
-    '<div class="hero-title">🎓 Fazal AI Maths Tutor</div>'
+    
     '<div class="animated-statement">'
     'Your intelligent partner for learning mathematics step by step.'
     '</div>'
