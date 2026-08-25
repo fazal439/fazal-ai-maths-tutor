@@ -10,6 +10,111 @@ st.set_page_config(
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 st.markdown("""
 <style>
+
+/* Mobile responsive design */
+@media screen and (max-width: 768px) {
+
+    .block-container {
+        max-width: 100% !important;
+        padding: 1rem 0.8rem 6rem 0.8rem !important;
+    }
+
+    .hero {
+        padding: 24px 18px !important;
+        border-radius: 18px !important;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        width: 100% !important;
+    }
+
+    .animated-statement {
+        width: 100% !important;
+        white-space: normal !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        border-right: none !important;
+        animation: mobileFade 1.5s ease !important;
+    }
+
+    @keyframes mobileFade {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .math-symbol {
+        font-size: 22px !important;
+        opacity: 0.12 !important;
+    }
+
+    .status-box {
+        padding: 13px !important;
+        font-size: 13px !important;
+        margin: 16px 0 !important;
+    }
+
+    /* Put every feature card on its own row */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+    }
+
+    .feature-card {
+        width: 100% !important;
+        min-height: 155px !important;
+        box-sizing: border-box !important;
+        margin-bottom: 5px !important;
+        padding: 20px !important;
+    }
+
+    .feature-card h3 {
+        font-size: 21px !important;
+    }
+
+    .feature-card p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    .feature-icon {
+        font-size: 34px !important;
+    }
+
+    .chat-heading {
+        font-size: 21px !important;
+        margin-top: 18px !important;
+    }
+
+    [data-testid="stChatMessage"] {
+        font-size: 15px !important;
+        padding: 10px !important;
+    }
+
+    [data-testid="stChatInput"] {
+        width: 100% !important;
+    }
+}
+
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<style>
 /* Make all chat text clear and bright */
 [data-testid="stChatMessage"] p,
 [data-testid="stChatMessage"] li,
