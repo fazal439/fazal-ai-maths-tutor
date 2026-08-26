@@ -1,4 +1,7 @@
 import streamlit as st
+
+
+
 import time
 from google import genai
 st.set_page_config(
@@ -628,11 +631,23 @@ if question:
 
     with st.chat_message("user"):
         st.markdown(question)
-
+    conversation_context = "\n".join(
+        f"{message['role']}: {message['content']}"
+        for message in st.session_state.messages[-8:]
+    )
     tutor_prompt = f"""
 You are Fazal AI Maths Tutor, a friendly and accurate mathematics teacher.
 
 Current learning mode: {st.session_state.mode}
+Previous conversation:
+{conversation_context}
+
+Follow-up instructions:
+- Use the previous conversation to understand follow-up questions.
+- If the student is confused, identify the exact confusing step.
+- Explain that step again using simpler words and a clear sequence.
+- Give a small example when helpful.
+- Do not repeat the complete answer unless the student requests it.
 
 Student's question:
 {question}
@@ -653,7 +668,7 @@ Instructions:
         with st.spinner("Fazal AI is solving your question..."):
             try:
                 response = client.models.generate_content(
-                    model="gemini-3.6-flash",
+                    model="gemini-3.5-flash-lite",
                     contents=tutor_prompt
                 )
 
@@ -661,7 +676,7 @@ Instructions:
 
             except Exception as error:
                 error_text = str(error)
-
+                         
                 if "429" in error_text or "RESOURCE_EXHAUSTED" in error_text:
                     answer = (
                         "⏳ The free AI service is currently busy. "
@@ -674,7 +689,7 @@ Instructions:
                     )  
 
         st.markdown(answer)
-
+       
     st.session_state.messages.append({
         "role": "assistant",
         "content": answer
