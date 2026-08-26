@@ -524,6 +524,276 @@ st.markdown("""
     color: #475569 !important;
     opacity: 1 !important;
 }
+/* ===== PREMIUM DARK FLOATING THEME ===== */
+
+.stApp {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0, 174, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 30%, rgba(128, 45, 255, 0.20), transparent 30%),
+        linear-gradient(135deg, #020817 0%, #071a3d 48%, #090525 100%) !important;
+    background-attachment: fixed !important;
+}
+
+[data-testid="stHeader"] {
+    background: rgba(2, 8, 23, 0.96) !important;
+    border-bottom: 1px solid rgba(63, 210, 255, 0.20);
+}
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #020817 0%, #071738 55%, #12073b 100%) !important;
+    border-right: 1px solid rgba(59, 215, 255, 0.30);
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Floating hero */
+.hero {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 35, 90, 0.96),
+        rgba(48, 25, 130, 0.92)
+    ) !important;
+    border: 1px solid rgba(80, 220, 255, 0.55) !important;
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(54, 194, 255, 0.18) !important;
+    animation: heroFloat 5s ease-in-out infinite !important;
+    transition: all 0.35s ease !important;
+}
+
+.hero:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.55),
+        0 0 45px rgba(77, 218, 255, 0.38) !important;
+}
+
+/* Floating feature cards */
+.feature-card {
+    border: 1px solid rgba(111, 225, 255, 0.45) !important;
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+    animation: cardFloat 4.5s ease-in-out infinite !important;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease !important;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.6s !important;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 1.2s !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.035) !important;
+    filter: brightness(1.16) saturate(1.12) !important;
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(79, 222, 255, 0.50) !important;
+}
+
+/* Chat messages floating glass effect */
+[data-testid="stChatMessage"] {
+    background: linear-gradient(
+        135deg,
+        rgba(7, 27, 69, 0.92),
+        rgba(33, 32, 105, 0.88)
+    ) !important;
+    border: 1px solid rgba(72, 198, 255, 0.38) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+[data-testid="stChatMessage"]:hover {
+    transform: translateY(-5px) !important;
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.48),
+        0 0 24px rgba(64, 205, 255, 0.24) !important;
+}
+
+/* Interactive buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #075bd8, #5421b8) !important;
+    color: white !important;
+    border: 1px solid rgba(100, 224, 255, 0.65) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32) !important;
+    transition: all 0.28s ease !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-5px) scale(1.04) !important;
+    background: linear-gradient(135deg, #008cff, #7a24e8) !important;
+    box-shadow:
+        0 15px 32px rgba(0, 0, 0, 0.48),
+        0 0 22px rgba(62, 213, 255, 0.55) !important;
+}
+
+/* Glowing question input */
+[data-testid="stChatInput"] {
+    background: rgba(4, 16, 44, 0.97) !important;
+    border: 1px solid rgba(72, 211, 255, 0.70) !important;
+    border-radius: 18px !important;
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.48),
+        0 0 24px rgba(61, 204, 255, 0.20) !important;
+}
+
+/* Floating animations */
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Animated glowing profile circle */
+.hero-title img {
+    border: 3px solid #67e8f9 !important;
+    border-radius: 50% !important;
+    animation: profileGlow 2.2s ease-in-out infinite !important;
+}
+
+@keyframes profileGlow {
+    0%, 100% {
+        transform: scale(1);
+        border-color: #67e8f9;
+        box-shadow:
+            0 0 8px #22d3ee,
+            0 0 18px rgba(34, 211, 238, 0.55),
+            0 0 28px rgba(124, 58, 237, 0.30);
+    }
+
+    50% {
+        transform: scale(1.06);
+        border-color: #c084fc;
+        box-shadow:
+            0 0 15px #22d3ee,
+            0 0 35px rgba(34, 211, 238, 0.90),
+            0 0 58px rgba(168, 85, 247, 0.75);
+    }
+}
+/* Floating mathematics symbols */
+.stApp::before,
+.stApp::after {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    color: rgba(103, 232, 249, 0.16);
+    text-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+    font-weight: bold;
+}
+
+.stApp::before {
+    content: "π   ∑   √x   ∞";
+    top: 18%;
+    left: 24%;
+    font-size: 42px;
+    word-spacing: 150px;
+    animation: mathFloatOne 12s ease-in-out infinite;
+}
+
+.stApp::after {
+    content: "x²   ∫   Δ   a²+b²=c²";
+    top: 65%;
+    left: 35%;
+    font-size: 30px;
+    word-spacing: 120px;
+    color: rgba(192, 132, 252, 0.14);
+    text-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+    animation: mathFloatTwo 15s ease-in-out infinite;
+}
+
+[data-testid="stAppViewContainer"] .main {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes mathFloatOne {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.25;
+    }
+    50% {
+        transform: translate(35px, -28px) rotate(5deg);
+        opacity: 0.65;
+    }
+}
+
+@keyframes mathFloatTwo {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.20;
+    }
+    50% {
+        transform: translate(-40px, 30px) rotate(-4deg);
+        opacity: 0.55;
+    }
+}
+/* Animated gradient title */
+.hero-title .hero-title {
+    background: linear-gradient(
+        90deg,
+        #67e8f9,
+        #ffffff,
+        #60a5fa,
+        #c084fc,
+        #67e8f9
+    ) !important;
+    background-size: 300% 100% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    animation: titleLight 4s linear infinite !important;
+    filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.45));
+}
+
+@keyframes titleLight {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 300% 50%;
+    }
+}
+/* 3D interactive card tilt */
+.feature-card {
+    transform-style: preserve-3d !important;
+    perspective: 1000px !important;
+    cursor: pointer !important;
+}
+
+.feature-card:hover {
+    transform:
+        perspective(1000px)
+        rotateX(-5deg)
+        rotateY(6deg)
+        translateY(-16px)
+        scale(1.035) !important;
+}
+
+.feature-card:hover h3,
+.feature-card:hover p,
+.feature-card:hover .card-icon {
+    transform: translateZ(28px) !important;
+    transition: transform 0.35s ease !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -621,7 +891,23 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-question = st.chat_input("Example: Solve 2x + 5 = 15")
+quick_question = None
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button("🧮 Solve Equation", use_container_width=True):
+        quick_question = "Solve 3x + 5 = 20 step by step."
+
+with col2:
+    if st.button("👦 Explain Simply", use_container_width=True):
+        quick_question = "Explain fractions in very simple words."
+
+with col3:
+    if st.button("📝 Create Quiz", use_container_width=True):
+        quick_question = "Create five mathematics practice questions."
+
+typed_question = st.chat_input("Example: Solve 2x + 5 = 15")
+question = typed_question or quick_question
 
 if question:
     st.session_state.messages.append({
